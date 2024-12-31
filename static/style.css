@@ -1,0 +1,219 @@
+/* עיצוב בסיסי */
+body {
+    font-family: Arial, sans-serif; /* סוג גופן בסיסי */
+    margin: 20px; /* רווח חיצוני מכל צד של הדף */
+    padding: 20px; /* רווח פנימי */
+    background-image: url('/static/justice_background.webp'); /* תמונת רקע */
+    background-size: cover; /* התמונה מתאימה לגודל המסך */
+    background-repeat: no-repeat; /* לא לחזור על התמונה */
+    background-position: center; /* מרכז התמונה במסך */
+    color: #333; /* צבע טקסט בסיסי */
+    direction: rtl; /* כיוון טקסט מימין לשמאל */
+}
+
+/* עיצוב הכותרת */
+h1 {
+    color: #2c3e50; /* צבע טקסט לכותרת */
+    text-align: center; /* ממרכז את הכותרת */
+    background-color: rgba(255, 255, 255, 0.8); /* רקע שקוף-לבן */
+    padding: 10px; /* רווח פנימי */
+    border-radius: 10px; /* עיגול פינות */
+    display: inline-block; /* כותרת כאובייקט במרכז */
+    margin: 0 auto; /* מיקום מרכזי אופקי */
+    width: 100%; /* התאמה לרוחב המסך */
+}
+
+/* עיצוב הטופס */
+form {
+    text-align: center; /* ממרכז את התוכן בטופס */
+    margin-bottom: 20px; /* רווח תחתון */
+    background-color: rgba(255, 255, 255, 0.8); /* רקע שקוף-לבן */
+    padding: 20px; /* רווח פנימי */
+    border-radius: 10px; /* עיגול פינות */
+}
+
+/* עיצוב כפתורים */
+button {
+    background-color: #2980b9; /* צבע רקע כחול */
+    color: white; /* צבע טקסט לבן */
+    border: none; /* אין גבול לכפתור */
+    padding: 10px 20px; /* רווח פנימי */
+    font-size: 16px; /* גודל גופן */
+    cursor: pointer; /* משנה את סמן העכבר */
+    border-radius: 5px; /* עיגול פינות */
+}
+
+button:hover {
+    background-color: #3498db; /* צבע רקע לכפתור כשמצביעים עליו */
+}
+
+/* עיצוב רשימות */
+ul {
+    background-color: rgba(255, 255, 255, 0.8); /* רקע שקוף-לבן */
+    padding: 15px; /* רווח פנימי */
+    border-radius: 5px; /* עיגול פינות */
+}
+
+li {
+    margin: 5px 0; /* רווח בין פריטים ברשימה */
+}
+
+/* עיצוב תוכן חוזה */
+.contract-content {
+    background-color: rgba(255, 255, 255, 0.9); /* רקע שקוף-לבן */
+    padding: 20px; /* רווח פנימי */
+    border: 2px solid #333; /* גבול בצבע כהה */
+    border-radius: 10px; /* עיגול פינות */
+    font-family: 'Times New Roman', serif; /* סוג גופן */
+    font-size: 18px; /* גודל טקסט */
+    line-height: 1.6; /* מרווח בין שורות */
+    color: #000; /* צבע טקסט שחור */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* צל קל מסביב */
+    margin-bottom: 20px; /* רווח תחתון */
+}
+
+/* כפתור נגישות */
+.floating-button {
+    position: fixed; /* מיקום קבוע */
+    bottom: 20px; /* מרחק מלמטה */
+    left: 20px; /* מרחק משמאל */
+    background-color: #2980b9; /* צבע רקע */
+    color: white; /* צבע טקסט */
+    border-radius: 50%; /* כפתור עגול */
+    width: 50px; /* רוחב */
+    height: 50px; /* גובה */
+    display: flex; /* יישור תוכן */
+    justify-content: center; /* יישור אופקי */
+    align-items: center; /* יישור אנכי */
+    font-size: 24px; /* גודל אייקון */
+    cursor: pointer; /* סמן עכבר */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* צל קל */
+    z-index: 1000; /* תמיד למעלה */
+}
+
+/* תפריט נגישות */
+.accessibility-menu {
+    position: fixed; /* מיקום קבוע */
+    bottom: 80px; /* מרחק מלמטה */
+    left: 20px; /* מרחק משמאל */
+    background-color: rgba(255, 255, 255, 0.9); /* רקע שקוף-לבן */
+    border: 1px solid #ccc; /* גבול אפור בהיר */
+    border-radius: 8px; /* עיגול פינות */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* צל קל */
+    padding: 15px; /* רווח פנימי */
+    z-index: 1000; /* תמיד למעלה */
+}
+
+/* פריטי תפריט נגישות */
+.accessibility-menu ul {
+    list-style: none; /* ביטול נקודות */
+    margin: 0; /* ביטול מרווח חיצוני */
+    padding: 0; /* ביטול רווח פנימי */
+}
+
+.accessibility-menu li {
+    margin: 10px 0; /* רווח בין פריטים */
+    cursor: pointer; /* סמן עכבר */
+    color: #333; /* צבע טקסט */
+}
+
+.accessibility-menu li:hover {
+    font-size: 1.2em; /* מגדיל טקסט בעת מעבר עכבר */
+    transition: font-size 0.2s ease-in-out; /* אפקט מעבר */
+}
+
+/* תוכן מוסתר */
+.hidden {
+    display: none; /* ביטול תצוגה */
+}
+
+/*רשימת האופציות:*/
+
+/* מצב ניגודיות גבוהה */
+.high-contrast {
+    background-color: black; /* רקע שחור */
+    color: rgb(255, 0, 0); /* טקסט לבן */
+}
+
+/* מצב שחור-לבן */
+.grayscale {
+    filter: grayscale(100%); /* פילטר שחור-לבן */
+}
+
+/* סמן עכבר גדול */
+.large-cursor * {
+    cursor: url('cursor1.jpg'), auto;
+}
+
+/* סמן עכבר שחור */
+.black-cursor * {
+    cursor: url('cursor2.jpg'), auto;
+}
+
+/* עטיפת הכפתור והסטיקר */
+.keyword-button-wrapper {
+    position: fixed; /* מיקום קבוע */
+    top: 100px; /* מיקום הכפתור */
+    left: 20px; /* מיקום משמאל */
+    z-index: 1000; /* תמיד למעלה */
+}
+
+/* סטיקר "בפיתוח" */
+.in-development-sticker {
+    position: absolute; /* מיקום יחסי לכפתור */
+    top: -20px; /* מיקום מעל הכפתור */
+    left: 0; /* יישור משמאל */
+    background-color: red; /* צבע רקע אדום */
+    color: white; /* טקסט לבן */
+    font-size: 14px; /* גודל טקסט */
+    font-weight: bold; /* טקסט מודגש */
+    padding: 5px 10px; /* רווח פנימי */
+    border-radius: 5px; /* עיגול פינות */
+    animation: blink 1s infinite; /* אנימציה להבהוב */
+}
+
+/* אנימציה להבהוב */
+@keyframes blink {
+    0%, 50% {
+        opacity: 1; /* שקיפות מלאה */
+    }
+    100% {
+        opacity: 0.5; /* שקיפות חלקית */
+    }
+}
+
+/* כפתור "הוספת מילות מפתח" */
+.floating-keyword-button {
+    position: fixed; /* מיקום קבוע */
+    top: 50px; /* מיקום הכפתור אנכי */
+    left: 20px; /* מיקום הכפתור אופקי */
+    background-color: #27ae60; /* צבע רקע ירוק */
+    color: white; /* טקסט לבן */
+    border-radius: 10px; /* עיגול פינות */
+    padding: 10px 20px; /* רווח פנימי */
+    font-size: 16px; /* גודל גופן */
+    cursor: pointer; /* סמן עכבר */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* צל קל */
+    text-align: center; /* טקסט במרכז */
+}
+
+.floating-keyword-button:hover {
+    background-color: #2ecc71; /* שינוי צבע בריחוף */
+}
+
+/* פסוק מהתורה */
+.justice-verse {
+    text-align: center; /* ממרכז את הטקסט בתוך ה-DIV */
+    margin-top: 50px; /* מוסיף רווח עליון כדי להפריד בין הפסוק לשאר התוכן */
+    color: #2c3e50; /* צבע הטקסט הוא כחול כהה */
+    font-family: 'Times New Roman', serif; /* בוחר בגופן קריא ומסוגנן */
+    font-size: 22px; /* גודל הטקסט */
+    background-color: rgba(255, 255, 255, 0.8); /* רקע שקוף-לבן (80% שקיפות) */
+    padding: 20px; /* רווח פנימי מכל הצדדים */
+    border-radius: 10px; /* עיגול פינות של הרקע */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* מוסיף צל קל מסביב לפסוק */
+    width: 80%; /* רוחב האלמנט 80% מרוחב הדף */
+    margin-left: auto; /* ממרכז את האלמנט אופקית */
+    margin-right: auto; /* ממרכז את האלמנט אופקית */
+}
+

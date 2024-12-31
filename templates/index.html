@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <title>כלי לניתוח חוזים</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='accessibility.js') }}"></script>
+    <h1>ניתוח חוזה משפטי - והתאמתו להלכה</h1>
+</head>
+<body>
+    <!-- קישור עם אייקון יציאה -->
+    <a href="{{ url_for('logout') }}" style="float: right;">
+        <img src="{{ url_for('static', filename='exit-icon.png') }}" alt="יציאה" style="width: 35px; height: 35px; margin-left: 5px;">
+    </a>
+
+    <form action="/analyze" method="post" enctype="multipart/form-data">
+        <input type="file" name="contract" required>
+        <button type="submit">נתח</button>
+    </form>
+
+    {% if content %}
+        <h2>תוכן החוזה:</h2>
+        <div class="contract-content">
+            <pre>{{ content }}</pre>
+        </div>
+        <h2>מילות מפתח שנמצאו:</h2>
+        <ul>
+            {% for keyword in keywords %}
+                <li>{{ keyword }}</li>
+            {% endfor %}
+        </ul>
+        <h2>המלצות לתיקון:</h2>
+        <ul>
+            {% for recommendation in recommendations %}
+                <li>{{ recommendation }}</li>
+            {% endfor %}
+        </ul>
+        
+        {% if updated_file %}
+            <a href="{{ url_for('static', filename=updated_file) }}" download class="download-btn">הורד את החוזה המתוקן</a>
+        {% endif %}
+    {% endif %}
+
+    <!-- Accessibility Floating Button -->
+    <div id="accessibility-button" class="floating-button" onclick="toggleAccessibilityMenu()">♿</div>
+
+    <!-- Accessibility Menu -->
+    <div id="accessibility-menu" class="accessibility-menu hidden">
+        <ul>
+            <li onclick="increaseFontSize()">הגדלת טקסט</li>
+            <li onclick="decreaseFontSize()">הקטנת טקסט</li>
+            <li onclick="toggleHighContrast()">מצב ניגודיות גבוהה</li>
+            <li onclick="highlightLinks()">הדגשת קישורים</li>
+            <li onclick="toggleBlackCursor()">סמן שחור</li>
+            <li onclick="enlargeCursor()">הגדלת סמן עכבר</li>
+            <li onclick="highlightHeadings()">הדגשת כותרות</li>
+            <li onclick="toggleGrayscale()">מצב שחור-לבן</li>
+            <li onclick="changeFont('Times New Roman')">שינוי גופן ל-Times New Roman</li>
+            <li onclick="resetAccessibility()">איפוס נגישות</li>
+        </ul>
+    </div>
+
+    <div class="keyword-button-wrapper">
+        <!-- הסטיקר האדום המהבהב -->
+        <div class="in-development-sticker">בפיתוח</div>
+        <!-- כפתור "הוספת מילות מפתח" -->
+        <div id="add-keywords-button" class="floating-keyword-button" onclick="showComingSoonMessage()">הוספת מילות מפתח</div>
+    </div>
+    
+
+</body>
+</html>
+

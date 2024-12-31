@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <title>דף כניסה</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="login-body">
+    <div class="login-container">
+        <h1>ברוך הבא למערכת ניתוח חוזים</h1>
+
+        <!-- הודעות פלאש -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                              
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <form action="/login" method="post" class="login-form">
+            <label for="username">שם משתמש:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">סיסמה:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">התחבר</button>
+        </form>
+    </div>
+    <div class="justice-verse">
+        <h2>"צֶדֶק צֶדֶק תִּרְדֹּף, לְמַעַן תִּחְיֶה וְיָרַשְׁתָּ אֶת הָאָרֶץ אֲשֶׁר ה' אֱלֹקיךָ נֹתֵן לָךְ."</h2>
+        <p>(דברים ט"ז, כ')</p>
+    </div>
+    
+</body>
+</html>
