@@ -64,3 +64,4 @@ def get_recommendations(found_keywords):
         'גישור': 'וודא שהגישור מתבצע על ידי גורם מוסמך ותוך שקיפות מלאה.',
     }
     return [recommendations[keyword] for keyword in found_keywords if keyword in recommendations]
+
