@@ -3,7 +3,7 @@ import os
 from contract_processor import read_contract, find_keywords, get_recommendations
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key' 
+app.secret_key = 'your_secret_key'
 
 # הגדרת מילות מפתח לבדיקה
 KEYWORDS = ['ריבית', 'כפייה', 'חוזה', 'סנקציות', 'בונוס', 'קנס', 'עיקול רכוש', 'גישור',]
@@ -71,8 +71,15 @@ def analyze_contract():
         file_path = f'static/{file.filename}'
         file.save(file_path)
 
-        # קריאה וניתוח התוכן
-        content = read_contract(file_path)
+        # זיהוי סוג הקובץ וקריאת התוכן
+        content = ""
+        if file.filename.lower().endswith('.txt') or file.filename.lower().endswith('.docx'):
+            content = read_contract(file_path)
+        else:
+            flash("פורמט הקובץ אינו נתמך. אנא העלה קובץ .txt או .docx.", "error")
+            return redirect(url_for('index'))
+
+        # ניתוח התוכן
         found_keywords = find_keywords(content, KEYWORDS)
         recommendations = get_recommendations(found_keywords)
 
@@ -87,7 +94,7 @@ def analyze_contract():
             updated_file.write(updated_content)
 
         # הצגת התוצאה בדף
-        return render_template('index.html', content=content, keywords=found_keywords, 
+        return render_template('index.html', content=content, keywords=found_keywords,
                                recommendations=recommendations, updated_file=f'updated_{file.filename}')
 
     flash("לא נבחר קובץ לניתוח.", "error")
